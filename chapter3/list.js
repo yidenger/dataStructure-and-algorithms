@@ -17,6 +17,8 @@ function List() {
     this.moveTo = moveTo;
     this.getElement = getElement;
     this.contains = contains;
+    this.insertBig = insertBig;
+    this.insertSmall = insertSmall;
 }
 
 function append(element) {
@@ -106,6 +108,24 @@ function getElement() {
     return this.dataSource[this.pos];
 }
 
+function insertBig(element) {
+    if(this.dataSource.every(item => item < element)) {
+        this.insert(element, this.dataSource[this.length() -1]);
+    }
+    else {
+        console.log('do nothing');
+    }
+}
+
+function insertSmall(element) {
+    if(this.dataSource.every(item => item > element)) {
+        this.insert(element, this.dataSource[this.length() - 1])
+    }
+    else {
+        console.info('do nothing');
+    }
+}
+
 var names = new List();
 names.append("Clayton");
 names.append("Raymond");
@@ -124,7 +144,19 @@ console.info(names.getElement());
 names.prev();
 console.info(names.getElement());
 
-for(names.front(); names.currPos() < names.length(); names.next()) {
-    console.log(names.currPos(), names.length());
-    console.log(names.getElement());
-}
+// for(names.front(); names.currPos() < names.length(); names.next()) {
+//     console.log(names.currPos(), names.length());
+//     console.log(names.getElement());
+// }
+
+
+names.insertBig('William');
+names.insertBig('Alan');
+names.insertBig('Hello');
+names.insertSmall('Jeek');
+names.insertSmall('Alen');
+console.log(names.toString());
+
+
+
+
