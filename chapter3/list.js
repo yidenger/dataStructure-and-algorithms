@@ -124,7 +124,7 @@ console.info(names.getElement());
 names.prev();
 console.info(names.getElement());
 
-for(names.front(); names.currPos() < names.length(); names.next()) {
-    console.log(names.currPos(), names.length());
-    console.log(names.getElement());
-}
+// for(names.front(); names.currPos() < names.length(); names.next()) {
+//     console.log(names.currPos(), names.length());
+//     console.log(names.getElement());
+// }
