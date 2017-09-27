@@ -17,6 +17,8 @@ function List() {
     this.moveTo = moveTo;
     this.getElement = getElement;
     this.contains = contains;
+    this.insertBig = insertBig;
+    this.insertSmall = insertSmall;
 }
 
 function append(element) {
@@ -104,6 +106,24 @@ function moveTo(position) {
 
 function getElement() {
     return this.dataSource[this.pos];
+}
+
+function insertBig(element) {
+    if(this.dataSource.every(item => item < element)) {
+        this.insert(element, this.dataSource[this.length() -1]);
+    }
+    else {
+        console.log('do nothing');
+    }
+}
+
+function insertSmall(element) {
+    if(this.dataSource.every(item => item > element)) {
+        this.insert(element, this.dataSource[this.length() - 1])
+    }
+    else {
+        console.info('do nothing');
+    }
 }
 
 var names = new List();

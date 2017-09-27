@@ -72,5 +72,12 @@ function intersect(set) {
 }
 
 function subset(set) {
-    if(this.size() > set.size())
+    if(this.size() > set.size()) {
+        return false;
+    }
+    else {
+        for(var member in this.dataSource) {
+            if(!set.contains)
+        }
+    }
 }
