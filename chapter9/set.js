@@ -77,7 +77,20 @@ function subset(set) {
     }
     else {
         for(var member in this.dataSource) {
-            if(!set.contains)
+            if(!set.contains(member)) {
+                return false;
+            }
         }
     }
+    return true;
+}
+
+function difference(set) {
+    var tempSet = new Set();
+    for(var i = 0; i < this.dataSource.length; ++i) {
+        if(!set.contains(this.dataSource[i])) {
+            tempSet.add(this.dataSource[i]);
+        }
+    }
+    return tempSet;
 }
